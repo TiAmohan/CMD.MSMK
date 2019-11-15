@@ -1,0 +1,82 @@
+
+用户表
+用户id	int 主键
+用户名	varchar
+密码	varchar
+等级	int
+余额	money
+
+供应商表
+卖家id	主键
+卖家名字	varchar
+供应商状态   int(0正常，1，冻结)
+
+供应商商品表
+商品ID  int  主键
+商品名  varchar
+商品简介   varchar
+商品价格	varchar
+商品图片	varchar
+供应商外键id
+
+
+卖家表
+卖家id	主键
+卖家名字	varchar
+卖家状态	int(0正常，1，冻结)
+
+
+卖家商品表
+商品ID  int  主键
+商品名  varchar
+商品简介   varchar
+商品价格	varchar
+商品图片	varchar
+评价	varchar
+评价时间	time
+卖家id 外键
+
+订单表
+订单iD
+卖家商品表id  外键
+订单状态  int  (待发货，已发货，已完成，退换)
+用户id 外键
+
+买家
+购物车表
+购物车id  主键
+商品名  varchar
+商品简介   varchar
+商品价格	varchar
+//商品图片	varchar
+
+买家个人信息
+用户名  varchar
+电话  varchar
+邮箱  varchar
+收货人  varchar
+收货地址  varchar
+收货手机号  varchar
+
+
+平台管理
+公告表
+公告id	int 主键
+公告标题  varchar
+公告内容  varchar
+公告时间  time
+公告对应级别  int(对哪个级别发布)(买家，卖家，供应商，派送，全部)
+
+级别审批
+审批id
+审批级别  int
+审批内容  varchar
+审批时间  time
+用户id	外键
+
+卖家与买家的一个交流
+id int 主键
+买家id 	外键
+卖家id	外键
+交流内容	varchar
+交流时间	time

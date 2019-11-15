@@ -1,0 +1,66 @@
+/* CSS Document */
+/* .all{
+	margin:0;
+	padding:0;
+	background:url(../image/enter6.jpg) no-repeat;
+	background-size:1440px 800px;
+	width:1440px;
+	height:800px;
+	} */
+.ul-content {
+	width: 390px;
+	margin: 10px auto;
+}
+
+.ul-centent li {
+	width: 375px;
+	height: 60px;
+	line-height: 60px;
+	list-style: none;
+}
+
+input {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	color: #000;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	height: 50px;
+	padding: 0 16px;
+	transition: background 0.3s ease-in-out;
+	width: 375px;
+
+}
+
+input:focus {
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+	border-radius: 5px;
+}
+
+.login-button,
+.register-button {
+	-webkit-appearance: none;
+	background: #009dff;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	height: 50px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.2em;
+	letter-spacing: 0.05em;
+	text-align: center;
+	text-transform: uppercase;
+	transition: background 0.3s ease-in-out;
+	width: 375px;
+}
+
+.login-button:hover,
+.register-button:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background: #00c8ff;
+}
+
+	

@@ -1,0 +1,34 @@
+#div1
+{
+	width: 100%;
+	height: 900px;
+	margin: auto;
+   
+}
+.top
+{
+	width: 100%;
+	height:10%;
+	
+}
+#middle
+{
+	width: 100%;
+	height:70%;
+	
+}
+
+/* .right
+{
+	width: 80%;
+	height: 100%;
+	margin: auto;
+	/* margin-top: -17px; */
+	
+
+.down
+{
+	width: 100%;
+	height:20%;
+	
+}

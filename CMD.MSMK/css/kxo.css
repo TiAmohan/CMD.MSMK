@@ -1,0 +1,102 @@
+#tt {
+	width: 100%;
+	height: auto;
+	border: 1px;
+}
+
+#t1 {
+	width: 100%;
+	height: 20%;
+	border: 1px solid red;
+}
+
+#t2 {
+	width: 100%;
+	height: auto;
+	border: 0px solid gray;
+	margin: auto;
+	background-color: #343A40;
+	text-align: justify;
+	margin-top: 55px;
+}
+
+#t2 ul {
+	list-style: none;
+}
+
+#t2 ul li {
+	float: left;
+	list-style: none;
+	width: 290px;
+	height: 460x;
+	text-align: center;
+	line-height: 40px;
+	color: grey;
+	border: 0px solid grey;
+	text-align: justify;
+	margin-left: 122px;
+	margin-bottom: 0px;
+	margin-top: 30px;
+
+}
+#t2 ul li:hover{
+	/* background-color:rgb(111,111,111); */
+	box-shadow: rgba(0,0,0,0.2)0 2px 8px 0;
+	/* width: 250px;
+	height: 250px; */
+}
+#t2 ul li img {
+	width: 220px;
+	height: 220px;
+	margin-left: 24px;
+	margin-top: 22px;
+	text-align: justify;
+	margin-right: 100px;
+	margin-right: 10px;
+
+}
+
+#t2 ul li pre {
+
+	margin-top: 5px;
+	text-align: center;
+	line-height: 20px;
+	letter-spacing: 0pt;
+	font-family: "楷体";
+	margin-left: 0px;
+	font-size: 17px;
+
+}
+
+#t2 ul {
+	margin: auto;
+
+}
+
+#t2 ul li a {
+	display: block;
+	font-size: 20px;
+	font-family: "agency fb";
+	margin-left: 5px;
+
+}
+
+#t2 ul li a:hover img {
+	opacity: 0.6;
+}
+
+#t2 ul li a:hover {
+	color: burlywood;
+	border: #DEB887 0px solid;
+}
+
+#t2 ul li h1 {
+	font-size: 25px;
+	font-family: "franklin gothic book";
+}
+
+#t2 img {
+/* 	margin-left: 440px; */
+	width:100%;
+	height:600px;
+}

@@ -1,0 +1,15 @@
+#zhiding {
+	width: 50px !important;
+	height: 50px;
+	/* background-color: white; */
+	position: fixed;
+	float: left;
+	visibility: visible;
+	z-index: 999;
+	margin-left: 90%;
+	/* margin-top: 50%; */
+	top: 80%;
+}
+#topping{
+	width:50px;
+}

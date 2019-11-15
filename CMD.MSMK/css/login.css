@@ -1,0 +1,42 @@
+/* CSS Document */
+
+
+/* ul li{
+		line-height: 60px;
+		list-style:none;
+		} */
+
+.all input {
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	color: #000;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	height: 50px;
+	padding: 0 16px;
+	transition: background 0.3s ease-in-out;
+	width: 100%;
+
+}
+
+.all input :focus {
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+}
+.modal-content{
+	background-color: #343a40!important;
+}
+.btn-default{
+	background-color: white!important;
+}
+.modal-title{
+	color: white;
+}
+.close{
+	color: white;
+}
+/* .bg-dark
+{
+	background-color:#ABDDE5!important;
+} */
