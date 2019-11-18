@@ -33,5 +33,19 @@ namespace CMD.MSMK.DAL
             }
             return list;
         }
+        /// <summary>
+        /// 添加
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static int NoticeInsert(ModelNotice model)
+        {
+            SqlParameter[] sqlpar = new SqlParameter[]
+            {
+                new SqlParameter("@NoticeTitle",model.NoticeTitle),
+                 new SqlParameter("@NoticeContent",model.NoticeContent),
+            };
+            return DBhelp.NotqueryProc("NoticeInsert", sqlpar);
+        }
     }
 }

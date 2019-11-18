@@ -18,5 +18,15 @@ namespace CMD.MSMK.BLL
         {
             return DalNotice.NoticeList();
         }
+
+        /// <summary>
+        /// 添加公告
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static int NoticeInsert(ModelNotice model)
+        {
+            return DalNotice.NoticeInsert(model);
+        }
     }
 }

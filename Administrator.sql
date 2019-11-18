@@ -121,3 +121,10 @@ as
 	select * from Notice order by NoticeID desc
 go
 --	exec NoticeList
+
+--添加公告
+create proc NoticeInsert(@NoticeTitle varchar(50),@NoticeContent varchar(200))
+as
+	insert  Notice values(@NoticeTitle,@NoticeContent,default,10)
+go
+--	exec NoticeInsert '测试','内容'
