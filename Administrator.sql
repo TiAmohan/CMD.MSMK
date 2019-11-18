@@ -114,3 +114,10 @@ end
 go
 
 --	exec Userspaging 5,1,1
+
+--¹«¸æ²éÑ¯
+create proc NoticeList
+as
+	select * from Notice order by NoticeID desc
+go
+--	exec NoticeList
