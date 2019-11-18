@@ -2,6 +2,7 @@
 using CMD.MSMK.MODEL.MODEL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,18 @@ namespace CMD.MSMK.BLL
         public static int UsersStateupdate(ModelUsers model)
         {
             return DalUsersList.UsersStateupdate(model);
+        }
+
+
+        public static object Userspaging(int pageIndex, int pageSize, out int docount)
+        {
+            return DalUsersList.Userspaging(pageIndex, pageSize, out docount);
+        }
+
+
+        public static List<ModelUsers> GetUserspaging(int pageIndex, int pageSize, out int totalCount, string Username = "", int Usergrade = 0, int UsersState = -1)
+        {
+            return DalUsersList.UserspagingGet(pageIndex, pageSize,out totalCount, Username, Usergrade, UsersState);
         }
     }
 }

@@ -52,10 +52,13 @@ FROM      dbo.List INNER JOIN
 go
 --	exec Listsale 1
 
---top10销量
-
-
---条件查询列表内容
+--top5销量
+create proc ListTop
+as
+	select Sproductname,COUNT(Sproductname) as value from List left join Sproduct on List.Sproductid=Sproduct.Sproductid group by Sproductname
+go
+--	exec ListTop
+--条件查询列表内容	
 --	根据	名字、等级、状态
 create proc UsersList(@Username varchar(50)='',@Usergrade int=0,@UsersState int=-1)
 as
@@ -81,9 +84,33 @@ go
 --修改用户状态
 create proc UsersStateupdate(@UsersState int,@Userid int)
 as
-if @UsersState<>0
-	update Users set UsersState=@UsersState where Userid=@Userid
-else
 	update Users set UsersState=@UsersState where Userid=@Userid
 go
---	exec UsersStateupdate 0,1
+--	exec UsersStateupdate 1,1
+--	select * from Users
+
+--分页查询
+create procedure Userspaging 
+(@pagesize int,
+@pageindex int,
+@docount bit,@Username varchar(50)='',@Usergrade int=0,@UsersState int=-1)
+as
+declare @sql varchar(max)
+
+if(@docount=1)
+select count(*) from Users,grade where usergrade=gradeid
+else
+begin
+ set @sql='with temptbl as (
+SELECT ROW_NUMBER() OVER (ORDER BY Userid asc)AS Row, * from Users,grade O  where usergrade=gradeid)
+ SELECT * FROM temptbl where Row between '+CONVERT(varchar,(@pageindex-1)*@pagesize+1)+' and '+CONVERT(varchar,(@pageindex-1)*@pagesize+@pagesize)+' and Username like ''%'+@Username+'%'''
+ if @Usergrade<>0
+		set @sql+=' and Usergrade ='+CONVERT(varchar,@Usergrade)
+	 if @UsersState<>-1
+		set @sql+=' and UsersState ='+CONVERT(varchar,@UsersState)
+	 prInt (@sql)
+	 exec (@sql)
+end
+go
+
+--	exec Userspaging 5,1,1

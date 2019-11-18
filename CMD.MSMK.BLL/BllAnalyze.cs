@@ -1,4 +1,5 @@
 ﻿using CMD.MSMK.DAL;
+using CMD.MSMK.MODEL;
 using CMD.MSMK.MODEL.MODEL;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,14 @@ namespace CMD.MSMK.BLL
         public static object selectListsale(string num)
         {
             return DalAnalyze.selectListsale(num);
+        }
+        /// <summary>
+        /// 查询销量（计数）
+        /// </summary>
+        /// <returns></returns>
+        public static List<ModelSproductCount> SproductTOP()
+        {
+            return DalAnalyze.SproductTOP();
         }
     }
 }

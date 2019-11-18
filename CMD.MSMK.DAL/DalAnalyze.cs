@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using CMD.MSMK.MODEL.MODEL;
+using CMD.MSMK.MODEL;
 
 namespace CMD.MSMK.DAL
 {
@@ -55,6 +56,27 @@ namespace CMD.MSMK.DAL
                 };
             object sdr = DBhelp.select("Listsale", sqlpar);
             return sdr;
+        }
+
+        /// <summary>
+        /// 查询销量（计数）
+        /// </summary>
+        /// <returns></returns>
+        public static List<ModelSproductCount> SproductTOP()
+        {
+            SqlDataReader sdr = DBhelp.slelectProc("ListTop");
+            List<ModelSproductCount> list = new List<ModelSproductCount>();
+            if (sdr.HasRows)
+            {
+                while (sdr.Read())
+                {
+                    ModelSproductCount model = new ModelSproductCount();
+                    model.value = sdr["value"].ToString();
+                    model.name = sdr["Sproductname"].ToString();
+                    list.Add(model);
+                }
+            }
+            return list;
         }
     }
 }

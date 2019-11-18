@@ -129,5 +129,30 @@ namespace CMD.MSMK.DAL
                 }
             }
         }
+        /// <summary>
+        /// 分页
+        /// </summary>
+        /// <param name="proName"></param>
+        /// <param name="sqlParameters"></param>
+        /// <returns></returns>
+        public static DataTable pagingProc(string proName, SqlParameter[] sqlParameters)
+        {
+            //创建连接
+            SqlConnection connection = new SqlConnection(str);
+            //创建命令
+            using (SqlCommand command = new SqlCommand(proName, connection))
+            {
+                //执行
+                if (connection.State == ConnectionState.Closed)
+                    //添加参数
+                    command.Parameters.AddRange(sqlParameters);
+                //返回结果,及时关闭掉连接
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = command;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+        }
     }
 }

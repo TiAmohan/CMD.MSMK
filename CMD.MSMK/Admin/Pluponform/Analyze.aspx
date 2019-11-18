@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="../../css/Pluponform/Analyze.css" rel="stylesheet" />
+    <script src="../../js/jquery-1.7.js"></script>
+    <script src="JS/Echarts.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -50,7 +52,32 @@
                 <asp:Label ID="Label13" runat="server" Text="总营销额"></asp:Label>
                 <asp:Label ID="lab_headcounts" runat="server" TabIndex="0" Text="总营销额"></asp:Label>
             </div>
+            <div id="main" style="width: 600px; height: 400px;"></div>
         </div>
     </form>
+    <script charset="utf-8">
+        $(function () {
+            var myChart = echarts.init(document.getElementById('main'));
+            $.ajax({
+                url: "../../Handler/Pluponform/Handler1.ashx",
+                data: {},
+                type: "get",
+                dataType: "json",
+                success: function (json) {
+                    data = json
+                    myChart.setOption({
+                        series: [
+                            {
+                                name: '总营销额',
+                                type: 'pie',
+                                radius: '55%',
+                                data: data,
+                            }
+                        ]
+                    })
+                }
+            })
+        })
+    </script>
 </body>
 </html>
