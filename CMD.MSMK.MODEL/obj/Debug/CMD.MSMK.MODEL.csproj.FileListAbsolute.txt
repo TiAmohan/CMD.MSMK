@@ -31,3 +31,8 @@ C:\Users\Administrator\Desktop\CMD.MSMK.Text\CMD.MSMK.MODEL\bin\Debug\CMD.MSMK.M
 C:\Users\Administrator\Desktop\CMD.MSMK.Text\CMD.MSMK.MODEL\obj\Debug\CMD.MSMK.MODEL.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\CMD.MSMK.Text\CMD.MSMK.MODEL\obj\Debug\CMD.MSMK.MODEL.dll
 C:\Users\Administrator\Desktop\CMD.MSMK.Text\CMD.MSMK.MODEL\obj\Debug\CMD.MSMK.MODEL.pdb
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.MODEL\bin\Debug\CMD.MSMK.MODEL.dll
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.MODEL\bin\Debug\CMD.MSMK.MODEL.pdb
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.MODEL\obj\Debug\CMD.MSMK.MODEL.csproj.CoreCompileInputs.cache
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.MODEL\obj\Debug\CMD.MSMK.MODEL.dll
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.MODEL\obj\Debug\CMD.MSMK.MODEL.pdb

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DalAnalyze.cs" />
     <Compile Include="DalComment.cs" />
+    <Compile Include="DalNotice.cs" />
     <Compile Include="DalProviderProduct.cs" />
     <Compile Include="DalUsers.cs" />
     <Compile Include="DalUsersList.cs" />

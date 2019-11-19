@@ -64,3 +64,14 @@ C:\Users\Administrator\Desktop\CMD.MSMK.Text\CMD.MSMK.BLL\obj\Debug\CMD.MSMK.BLL
 C:\Users\Administrator\Desktop\CMD.MSMK.Text\CMD.MSMK.BLL\obj\Debug\CMD.MSMK.BLL.csproj.CopyComplete
 C:\Users\Administrator\Desktop\CMD.MSMK.Text\CMD.MSMK.BLL\obj\Debug\CMD.MSMK.BLL.dll
 C:\Users\Administrator\Desktop\CMD.MSMK.Text\CMD.MSMK.BLL\obj\Debug\CMD.MSMK.BLL.pdb
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\bin\Debug\CMD.MSMK.BLL.dll
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\bin\Debug\CMD.MSMK.BLL.pdb
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\bin\Debug\CMD.MSMK.DAL.dll
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\bin\Debug\CMD.MSMK.MODEL.dll
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\bin\Debug\CMD.MSMK.DAL.pdb
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\bin\Debug\CMD.MSMK.MODEL.pdb
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\obj\Debug\CMD.MSMK.BLL.csprojAssemblyReference.cache
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\obj\Debug\CMD.MSMK.BLL.csproj.CoreCompileInputs.cache
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\obj\Debug\CMD.MSMK.BLL.csproj.CopyComplete
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\obj\Debug\CMD.MSMK.BLL.dll
+E:\实训\项目\备份2\CMD.MSMK\CMD.MSMK.BLL\obj\Debug\CMD.MSMK.BLL.pdb

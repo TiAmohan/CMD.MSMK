@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -69,8 +72,13 @@
   <ItemGroup>
     <Content Include="Admin\Comment.aspx" />
     <Content Include="Admin\Pluponform\Analyze.aspx" />
+    <Content Include="Admin\Pluponform\JS\Echarts.js" />
+    <Content Include="Admin\Pluponform\Notice.aspx" />
+    <Content Include="Admin\Pluponform\NoticeAdd.aspx" />
+    <Content Include="Admin\Pluponform\Supplier.aspx" />
     <Content Include="Admin\Pluponform\UsersList.aspx" />
     <Content Include="Admin\ProviderProduct.aspx" />
+    <Content Include="js\jquery.tmpl.js" />
     <Content Include="user\Help.aspx" />
     <Content Include="user\index.aspx" />
     <Content Include="Admin\login.aspx" />
@@ -1018,6 +1026,27 @@
     <Compile Include="Admin\Pluponform\Analyze.aspx.designer.cs">
       <DependentUpon>Analyze.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Pluponform\Notice.aspx.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pluponform\Notice.aspx.designer.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pluponform\NoticeAdd.aspx.cs">
+      <DependentUpon>NoticeAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pluponform\NoticeAdd.aspx.designer.cs">
+      <DependentUpon>NoticeAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pluponform\Supplier.aspx.cs">
+      <DependentUpon>Supplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pluponform\Supplier.aspx.designer.cs">
+      <DependentUpon>Supplier.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Pluponform\UsersList.aspx.cs">
       <DependentUpon>UsersList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1031,6 +1060,15 @@
     </Compile>
     <Compile Include="Admin\ProviderProduct.aspx.designer.cs">
       <DependentUpon>ProviderProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\Pluponform\Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\Pluponform\NoticeAdd.ashx.cs">
+      <DependentUpon>NoticeAdd.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\Pluponform\NoticeList.ashx.cs">
+      <DependentUpon>NoticeList.ashx</DependentUpon>
     </Compile>
     <Compile Include="user\Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>
@@ -1121,6 +1159,9 @@
     <Content Include="layui\font\iconfont.ttf" />
     <Content Include="layui\font\iconfont.woff" />
     <Content Include="layui\font\iconfont.woff2" />
+    <Content Include="Handler\Pluponform\Handler1.ashx" />
+    <Content Include="Handler\Pluponform\NoticeList.ashx" />
+    <Content Include="Handler\Pluponform\NoticeAdd.ashx" />
     <None Include="packages.config" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -1147,6 +1188,10 @@
     <ProjectReference Include="..\CMD.MSMK.BLL\CMD.MSMK.BLL.csproj">
       <Project>{a3820665-2f50-41df-b9c1-a431456a9068}</Project>
       <Name>CMD.MSMK.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CMD.MSMK.DAL\CMD.MSMK.DAL.csproj">
+      <Project>{BE16C4CC-51D4-4E63-9841-722CF664ADC5}</Project>
+      <Name>CMD.MSMK.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\CMD.MSMK.MODEL\CMD.MSMK.MODEL.csproj">
       <Project>{bf0fdc0f-c316-4e8f-8770-a1cee49669ce}</Project>
