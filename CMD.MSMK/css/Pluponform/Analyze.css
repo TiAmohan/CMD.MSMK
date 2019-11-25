@@ -1,7 +1,18 @@
 ﻿body {
-    background-color: #2d3035;
-    color :#DB6574;
+    background-color: darkgray;
 }
-h1, h3 {
-    color: #8a8d93;
+
+.float {
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 30px !important;
+}
+
+span {
+    /*font-weight:800;*/
+    font-size: 18px;
+}
+
+.left {
+    margin-left: 20px;
 }

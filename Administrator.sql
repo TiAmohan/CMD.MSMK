@@ -1,3 +1,5 @@
+use master
+go
 use EveryTime
 go
 --管理员数据存储
@@ -38,7 +40,7 @@ create proc Listsale(@num int=0)
 as
 	declare @sql varchar(max)
 	 set @sql='
-SELECT   SUM( dbo.Sproduct.Sproductprice)
+SELECT   cast(SUM( dbo.Sproduct.Sproductprice) as decimal(9,2))
 FROM      dbo.List INNER JOIN
                 dbo.Users ON dbo.List.Userid = dbo.Users.Userid INNER JOIN
                 dbo.Sproduct ON dbo.List.Sproductid = dbo.Sproduct.Sproductid where 1=1' 
@@ -51,7 +53,9 @@ FROM      dbo.List INNER JOIN
 		exec (@sql)
 go
 --	exec Listsale 1
-
+--select cast(SUM( dbo.Sproduct.Sproductprice) as decimal(9,2)) FROM      dbo.List INNER JOIN
+--                dbo.Users ON dbo.List.Userid = dbo.Users.Userid INNER JOIN
+--                dbo.Sproduct ON dbo.List.Sproductid = dbo.Sproduct.Sproductid where 1=1
 --top5销量
 create proc ListTop
 as
@@ -93,38 +97,73 @@ go
 create procedure Userspaging 
 (@pagesize int,
 @pageindex int,
-@docount bit,@Username varchar(50)='',@Usergrade int=0,@UsersState int=-1)
+ @docount bit )
 as
-declare @sql varchar(max)
-
 if(@docount=1)
-select count(*) from Users,grade where usergrade=gradeid
+	select count(*) from Users,grade where usergrade=gradeid
 else
 begin
- set @sql='with temptbl as (
-SELECT ROW_NUMBER() OVER (ORDER BY Userid asc)AS Row, * from Users,grade O  where usergrade=gradeid)
- SELECT * FROM temptbl where Row between '+CONVERT(varchar,(@pageindex-1)*@pagesize+1)+' and '+CONVERT(varchar,(@pageindex-1)*@pagesize+@pagesize)+' and Username like ''%'+@Username+'%'''
- if @Usergrade<>0
-		set @sql+=' and Usergrade ='+CONVERT(varchar,@Usergrade)
-	 if @UsersState<>-1
-		set @sql+=' and UsersState ='+CONVERT(varchar,@UsersState)
-	 prInt (@sql)
-	 exec (@sql)
+with temptbl as (
+	SELECT ROW_NUMBER() OVER (ORDER BY Userid asc)AS Row, * from Users,grade O  where usergrade=gradeid)
+	 SELECT * FROM temptbl where Row between ((@pageindex-1)*@pagesize+1) and ((@pageindex-1)*@pagesize+@pagesize)
 end
 go
 
---	exec Userspaging 5,1,1
+--	exec Userspaging 5,1,0
 
 --公告查询
-create proc NoticeList
+create proc NoticeList(@NoticeState int=0)
 as
-	select * from Notice order by NoticeID desc
+	if @NoticeState<>0
+		select * from Notice where NoticeState=1  order by NoticeID desc 
+	else
+		select * from Notice where NoticeState=0  order by NoticeID desc 
 go
 --	exec NoticeList
 
 --添加公告
 create proc NoticeInsert(@NoticeTitle varchar(50),@NoticeContent varchar(200))
 as
-	insert  Notice values(@NoticeTitle,@NoticeContent,default,10)
+	insert  Notice values(@NoticeTitle,@NoticeContent,default,4,default)
 go
 --	exec NoticeInsert '测试','内容'
+
+--删除公告软删除
+create proc NoticeDeleteState(@NoticeID int)
+as
+	update Notice set NoticeState=1 where NoticeID=@NoticeID 
+	--delete Notice where NoticeID=@NoticeID
+go
+--	exec NoticeDelete 1
+
+--删除公告删除数据
+create proc NoticeDel(@NoticeID int)
+as
+	delete Notice where NoticeID=@NoticeID
+go
+--	exec NoticeDel 1
+
+--审批表
+--审批查询
+create proc ApproveList(@ApproveState int=0)
+as
+if	@ApproveState<>0
+	SELECT   dbo.Approve.*, dbo.Users.*, dbo.grade.*
+FROM      dbo.Approve INNER JOIN
+                dbo.Users ON dbo.Approve.Userid = dbo.Users.Userid INNER JOIN
+                dbo.grade ON dbo.Users.Usergrade = dbo.grade.gradeId where ApproveState=1
+else
+SELECT   dbo.Approve.*, dbo.Users.*, dbo.grade.*
+FROM      dbo.Approve INNER JOIN
+                dbo.Users ON dbo.Approve.Userid = dbo.Users.Userid INNER JOIN
+                dbo.grade ON dbo.Users.Usergrade = dbo.grade.gradeId where ApproveState=0
+go
+--	exec ApproveList
+
+--级别修改
+create proc ApproveUpdate(@ApproveID int,@ApproveLevel int,@Userid int)
+as
+	update Users set Usergrade=@ApproveLevel where Userid=@Userid
+	update Approve set ApproveState=1,processingtime=getdate() where ApproveID=@ApproveID
+go
+--	exec ApproveUpdates 

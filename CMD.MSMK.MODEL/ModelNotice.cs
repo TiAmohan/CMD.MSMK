@@ -24,10 +24,14 @@ namespace CMD.MSMK.MODEL
         /// <summary>
         /// 公告时间
         /// </summary>
-        public DateTime NoticeTime { get; set; }
+        public string NoticeTime { get; set; }
         /// <summary>
         /// 公告发布人(对应用户表用户id)
         /// </summary>
-        public int Userid { get; set; }
+        public int gradeid { get; set; }
+        /// <summary>
+        /// 订单状态
+        /// </summary>
+        public int NoticeState { get; set; }
     }
 }

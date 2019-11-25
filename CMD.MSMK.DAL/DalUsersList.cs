@@ -1,4 +1,6 @@
-﻿using CMD.MSMK.MODEL.MODEL;
+﻿using CMD.MSMK.MODEL;
+using CMD.MSMK.MODEL.MODEL;
+using HPIT.Data.Core;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -79,14 +81,20 @@ namespace CMD.MSMK.DAL
               };
             return DBhelp.NotqueryProc("UsersStateupdate", sqlpar);
         }
-
+        /// <summary>
+        /// 分页
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="docount"></param>
+        /// <returns></returns>
         public static object Userspaging(int pageIndex, int pageSize, out int docount)
         {
             docount = 1;
             SqlParameter[] sqlpar = new SqlParameter[]
                 {
                    new SqlParameter("@pageindex",pageIndex),
-                 new SqlParameter("@pagesize",pageSize),
+                     new SqlParameter("@pagesize",pageSize),
                       new SqlParameter("@docount",docount),
                 };
             //sqlpar[2].Direction = ParameterDirection.Output;
@@ -95,24 +103,24 @@ namespace CMD.MSMK.DAL
             return dt;
         }
 
-
-        public static List<ModelUsers> UserspagingGet(int pageIndex, int pageSize, out int totalCount, string Username = "", int Usergrade = 0, int UsersState = -1)
+        /// <summary>
+        /// 分页
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="totalCount"></param>
+        /// <returns></returns>
+        public static List<ModelUsers> UserspagingGet(int pageIndex, int pageSize, out int totalCount)
         {
             //初始化输出参数
             totalCount = 0;
-            string proName = "Userspaging";
             SqlParameter[] sqlParameters = new SqlParameter[] {
                  new SqlParameter("@pageindex",pageIndex),
                  new SqlParameter("@pagesize",pageSize),
-                 new SqlParameter("@docount",totalCount),
-                 new SqlParameter("@Username",Username),
-                     new SqlParameter("@Usergrade",Usergrade),
-                      new SqlParameter("@UsersState",UsersState),
+                 new SqlParameter("@docount",totalCount)
             };
-            //调用dbHelper 存储过程方法
-            SqlDataReader sdr = DBhelp.slelectProc(proName, sqlParameters);
-            //获取参数的值
-            //处理reader的内容，转换reader-》List
+            //sqlParameters[2].Direction = ParameterDirection.Output;
+            SqlDataReader sdr = DBhelp.slelectProc("Userspaging", sqlParameters);
             List<ModelUsers> list = new List<ModelUsers>();
             //判断有没有数据
             if (sdr.HasRows)
@@ -129,6 +137,7 @@ namespace CMD.MSMK.DAL
                     list.Add(model);
                 }
             }
+            //totalCount = Convert.ToInt32(sqlParameters[2].Value);
             //返回结果list
             return list;
         }

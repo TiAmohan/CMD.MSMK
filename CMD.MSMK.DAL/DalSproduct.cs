@@ -75,5 +75,28 @@ namespace CMD.MSMK.DAL
                 };
             return DBhelp.NotqueryProc("Sproduct_ins", parter);
         }
+
+        //修改
+        public static int update(ModelSproduct sproduct)
+        {
+            SqlParameter[] parter = new SqlParameter[]
+               {
+                   
+                    new SqlParameter("Sproductcontent",sproduct.Sproductcontent),
+                    new SqlParameter("Sproductprice",sproduct.Sproductprice)
+                   
+               };
+            return DBhelp.NotqueryProc("Sproduct_upt", parter);
+        }
+
+        //删除
+        public static int delete(ModelSproduct sproduct)
+        {
+            SqlParameter[] parter = new SqlParameter[]
+               {
+                   new SqlParameter("Sproductid",sproduct.Sproductid)
+               };
+            return DBhelp.NotqueryProc("Sproduct_del", parter);
+        }
     }
 }

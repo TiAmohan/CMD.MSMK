@@ -107,7 +107,8 @@ create table Notice
 	NoticeTitle varchar(50) not null,--公告标题
 	NoticeContent varchar(200) not null,--公告内容
 	NoticeTime datetime default(getdate()),--公告时间
-	Userid int references Users(Userid) --公告发布人
+	gradeid int references grade(gradeid), --公告发布人
+	NoticeState bit  default(0) check(NoticeState=0 or NoticeState=1)--用户状态  默认为0   0正常，1冻结 
 )
 go
 
@@ -115,9 +116,11 @@ go
 create table Approve
 (
 	ApproveID int primary key identity(1,1),--审批ID
-	ApproveLevel int not null,--审批级别
+	ApproveLevel int references grade(gradeId),--申请级别
 	ApproveContent varchar(200),--审批内容
-	ApproveTime datetime default(getdate()),--审批时间
+	ApproveTime datetime default(getdate()),--申请时间
+	processingtime datetime default(null),--处理时间
+	ApproveState bit default(0) check(ApproveState=0 or ApproveState=1),--是否显示
 	Userid int references Users(Userid) --申请人
 )
 go
@@ -175,16 +178,16 @@ insert Receiving values('张三','河南省郑州市二七区XX路136号','12345678920',10)
 
 
 --卖家商品信息
-insert Sproduct values('卡西欧','简约奢华','5300','../img/kxo/14.gif')
-insert Sproduct values('卡西欧','简约奢华','5200','../img/kxo/13.gif')
-insert Sproduct values('卡西欧','简约奢华','5400','../img/kxo/5.gif')
-insert Sproduct values('阿玛尼','简约奢华','5800','../img/amn/6.gif')
-insert Sproduct values('阿玛尼','简约奢华','5800','../img/amn/7.gif')
-insert Sproduct values('阿玛尼','简约奢华','5800','../img/amn/1.gif')
-insert Sproduct values('浪琴','简约奢华','3300','../img/lq/4.gif')
-insert Sproduct values('浪琴','简约奢华','3900','../img/lq/5.gif')
-insert Sproduct values('劳力士','简约奢华','15300','../img/lls/5.gif')
-insert Sproduct values('劳力士','简约奢华','35300','../img/lls/6.gif')
+insert Sproduct values('卡西欧Aca','简约奢华','5300','../img/kxo/14.gif')
+insert Sproduct values('卡西欧Aca2','简约奢华','5200','../img/kxo/13.gif')
+insert Sproduct values('卡西欧Aca3','简约奢华','5400','../img/kxo/5.gif')
+insert Sproduct values('阿玛尼amn','简约奢华','5800','../img/amn/6.gif')
+insert Sproduct values('阿玛尼amn2','简约奢华','5800','../img/amn/7.gif')
+insert Sproduct values('阿玛尼amn3','简约奢华','5800','../img/amn/1.gif')
+insert Sproduct values('浪琴lq1','简约奢华','3300','../img/lq/4.gif')
+insert Sproduct values('浪琴lq2','简约奢华','3900','../img/lq/5.gif')
+insert Sproduct values('劳力士lls','简约奢华','15300','../img/lls/5.gif')
+insert Sproduct values('劳力士lls2','简约奢华','35300','../img/lls/6.gif')
 --select * from Sproduct
 
 --订单信息
@@ -200,30 +203,30 @@ insert List values(9,2,9)
 insert List values(10,3,10)
 --select * from List
 --公告表插入
-insert into Notice values('管理员公告','每时每刻网站正式上线',default,10)
-insert into Notice values('管理员公告','请各位买家卖家供货商遵守平台规则',default,10)
-insert into Notice values('供货商公告','货源上新，多多关注',default,4)
-insert into Notice values('供货商公告','货源又上新，多多留意',default,5)
-insert into Notice values('供货商公告','货源又又上新，多多注意',default,7)
-insert into Notice values('卖家公告','店铺上新，欢迎选购',default,2)
-insert into Notice values('卖家公告','店铺上新，欢迎选购',default,6)
-insert into Notice values('卖家公告','店铺上新，欢迎选购',default,6)
-insert into Notice values('卖家公告','店铺上新，欢迎选购',default,8)
-insert into Notice values('卖家公告','店铺上新，欢迎选购',default,9)
+insert into Notice values('买家公告','每时每刻网站正式上线',default,1,default)
+insert into Notice values('买家公告','请各位买家遵守平台规则',default,1,default)
+insert into Notice values('供货商公告','货源上新，多多关注',default,3,default)
+insert into Notice values('供货商公告','货源又上新，多多留意',default,3,default)
+insert into Notice values('供货商公告','货源又又上新，多多注意',default,3,default)
+insert into Notice values('卖家公告','店铺上新，欢迎选购',default,2,1)
+insert into Notice values('卖家公告','店铺上新，欢迎选购',default,2,1)
+insert into Notice values('卖家公告','店铺上新，欢迎选购',default,2,default)
+insert into Notice values('卖家公告','店铺上新，欢迎选购',default,2,default)
+insert into Notice values('卖家公告','店铺上新，欢迎选购',default,2,default)
 --select * from Notice
 
 
 --审批表插入
-insert into Approve values(2,'申请成为卖家',default,1)
-insert into Approve values(2,'申请成为卖家',default,1)
-insert into Approve values(2,'申请成为卖家',default,3)
-insert into Approve values(2,'申请成为卖家',default,3)
-insert into Approve values(2,'申请成为卖家',default,3)
-insert into Approve values(3,'申请成为供货商',default,2)
-insert into Approve values(3,'申请成为供货商',default,6)
-insert into Approve values(3,'申请成为供货商',default,6)
-insert into Approve values(3,'申请成为供货商',default,8)
-insert into Approve values(3,'申请成为供货商',default,9)
+insert into Approve values(2,'申请成为卖家',default,default,1,1)
+insert into Approve values(2,'申请成为卖家',default,default,1,1)
+insert into Approve values(2,'申请成为卖家',default,default,default,3)
+insert into Approve values(2,'申请成为卖家',default,default,default,3)
+insert into Approve values(2,'申请成为卖家',default,default,default,3)
+insert into Approve values(3,'申请成为供货商',default,default,default,2)
+insert into Approve values(3,'申请成为供货商',default,default,default,6)
+insert into Approve values(3,'申请成为供货商',default,default,default,6)
+insert into Approve values(3,'申请成为供货商',default,default,default,8)
+insert into Approve values(3,'申请成为供货商',default,default,default,9)
 --select * from Approve
 
 

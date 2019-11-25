@@ -17,8 +17,7 @@ namespace CMD.MSMK.Handler.Pluponform
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "application/plain";
-            List<ModelNotice> list = BllNotice.NoticeList();
-            
+            List<ModelNotice> list = BllNotice.NoticeList(Convert.ToInt32(context.Request["state"]));
             string result = JsonConvert.SerializeObject(new { data = list });
             context.Response.Write(result);
         }

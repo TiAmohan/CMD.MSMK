@@ -14,9 +14,9 @@ namespace CMD.MSMK.BLL
         /// 查询公告
         /// </summary>
         /// <returns></returns>
-        public static List<ModelNotice> NoticeList()
+        public static List<ModelNotice> NoticeList(int NoticeState = 0)
         {
-            return DalNotice.NoticeList();
+            return DalNotice.NoticeList(NoticeState);
         }
 
         /// <summary>
@@ -27,6 +27,25 @@ namespace CMD.MSMK.BLL
         public static int NoticeInsert(ModelNotice model)
         {
             return DalNotice.NoticeInsert(model);
+        }
+
+        /// <summary>
+        /// 删除公告
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static int NoticeDelete(ModelNotice model)
+        {
+            return DalNotice.NoticeDelete(model);
+        }
+        /// <summary>
+        /// 删除公告 删除数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static int NoticeDel(ModelNotice model)
+        {
+            return DalNotice.NoticeDel(model);
         }
     }
 }

@@ -42,9 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BllAnalyze.cs" />
+    <Compile Include="BllApprove.cs" />
     <Compile Include="BllComment.cs" />
     <Compile Include="BllNotice.cs" />
     <Compile Include="BllProviderProduct.cs" />
+    <Compile Include="BllSproduct.cs" />
     <Compile Include="BllSupplier.cs" />
     <Compile Include="BllUsers.cs" />
     <Compile Include="BllUsersList.cs" />

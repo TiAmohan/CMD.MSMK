@@ -71,14 +71,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Comment.aspx" />
+    <Content Include="Admin\Comment_int.aspx" />
     <Content Include="Admin\Pluponform\Analyze.aspx" />
+    <Content Include="Admin\Pluponform\Approve.aspx" />
     <Content Include="Admin\Pluponform\JS\Echarts.js" />
     <Content Include="Admin\Pluponform\Notice.aspx" />
     <Content Include="Admin\Pluponform\NoticeAdd.aspx" />
     <Content Include="Admin\Pluponform\Supplier.aspx" />
     <Content Include="Admin\Pluponform\UsersList.aspx" />
     <Content Include="Admin\ProviderProduct.aspx" />
+    <Content Include="Admin\ProviderProduct_int.aspx" />
+    <Content Include="css\Pluponform\Analyze.css" />
     <Content Include="js\jquery.tmpl.js" />
+    <Content Include="Script\animate-3.7.0.css" />
+    <Content Include="Script\bootstrap-3.3.7.min.css" />
+    <Content Include="Script\bootstrap-3.3.7.min.js" />
+    <Content Include="Script\jquery-2.1.1.min.js" />
     <Content Include="user\Help.aspx" />
     <Content Include="user\index.aspx" />
     <Content Include="Admin\login.aspx" />
@@ -1019,12 +1027,26 @@
     <Compile Include="Admin\Comment.aspx.designer.cs">
       <DependentUpon>Comment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Comment_int.aspx.cs">
+      <DependentUpon>Comment_int.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Comment_int.aspx.designer.cs">
+      <DependentUpon>Comment_int.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Pluponform\Analyze.aspx.cs">
       <DependentUpon>Analyze.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Pluponform\Analyze.aspx.designer.cs">
       <DependentUpon>Analyze.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pluponform\Approve.aspx.cs">
+      <DependentUpon>Approve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pluponform\Approve.aspx.designer.cs">
+      <DependentUpon>Approve.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Pluponform\Notice.aspx.cs">
       <DependentUpon>Notice.aspx</DependentUpon>
@@ -1061,6 +1083,19 @@
     <Compile Include="Admin\ProviderProduct.aspx.designer.cs">
       <DependentUpon>ProviderProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ProviderProduct_int.aspx.cs">
+      <DependentUpon>ProviderProduct_int.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProviderProduct_int.aspx.designer.cs">
+      <DependentUpon>ProviderProduct_int.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\Pluponform\Approve.ashx.cs">
+      <DependentUpon>Approve.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\Pluponform\ApproveUpdate.ashx.cs">
+      <DependentUpon>ApproveUpdate.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Handler\Pluponform\Handler1.ashx.cs">
       <DependentUpon>Handler1.ashx</DependentUpon>
     </Compile>
@@ -1069,6 +1104,9 @@
     </Compile>
     <Compile Include="Handler\Pluponform\NoticeList.ashx.cs">
       <DependentUpon>NoticeList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\Pluponform\Users.ashx.cs">
+      <DependentUpon>Users.ashx</DependentUpon>
     </Compile>
     <Compile Include="user\Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>
@@ -1162,6 +1200,9 @@
     <Content Include="Handler\Pluponform\Handler1.ashx" />
     <Content Include="Handler\Pluponform\NoticeList.ashx" />
     <Content Include="Handler\Pluponform\NoticeAdd.ashx" />
+    <Content Include="Handler\Pluponform\Users.ashx" />
+    <Content Include="Handler\Pluponform\Approve.ashx" />
+    <Content Include="Handler\Pluponform\ApproveUpdate.ashx" />
     <None Include="packages.config" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />

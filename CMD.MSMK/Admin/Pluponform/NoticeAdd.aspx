@@ -6,9 +6,11 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../js/jquery-1.7.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+
+    <script src="../../js/bootstrap.js"></script>
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -25,12 +27,12 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <input type="text" class="form-control" id="txt_title" placeholder="标题">
+                        <input type="text" class="form-control" id="txt_title" placeholder="标题" />
                         <textarea id="txt_neirong" class="form-control" rows="3" placeholder="内容"></textarea>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="close">
                         关闭
                     </button>
                     <button type="button" class="btn btn-primary" id="but">
@@ -45,11 +47,11 @@
     <script>
         $(function () {
             $("#myModal").modal("show");
-            $("#but").click(function(){
+            $("#but").click(function () {
                 $.ajax({
                     url: "../../Handler/Pluponform/NoticeAdd.ashx",
                     type: "get",
-                    data: {name:$("#txt_title").val(),neirong:$("#txt_neirong").val()},
+                    data: { name: $("#txt_title").val(), neirong: $("#txt_neirong").val() },
                     dataType: "json",
                     success: function (json) {
                         if (json = 1) {
@@ -61,7 +63,12 @@
                     }
                 })
             })
-
+            $("#close").click(function () {
+                location.href = "../../admin/Pluponform/Notice.aspx";
+            })
+            $(".close").click(function () {
+                location.href = "../../admin/Pluponform/Notice.aspx";
+            })
         })
     </script>
 </body>

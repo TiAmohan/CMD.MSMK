@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMD.MSMK.MODEL.MODEL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CMD.MSMK.MODEL
 {
-   public class ModelApprove
+   public class ModelApprove:ModelUsers
     {
         //审批表
         /// <summary>
@@ -14,15 +15,15 @@ namespace CMD.MSMK.MODEL
         /// </summary>
         public int ApproveID { get; set; }
         /// <summary>
-        /// 审批级别
+        /// 申请级别
         /// </summary>
         public int ApproveLevel { get; set; }
         /// <summary>
-        /// 审批内容
+        /// 申请内容
         /// </summary>
         public string ApproveContent { get; set; }
         /// <summary>
-        /// 审批时间
+        /// 申请时间
         /// </summary>
         public DateTime ApproveTime { get; set; }
         /// <summary>

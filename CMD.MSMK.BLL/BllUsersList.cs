@@ -1,4 +1,5 @@
 ﻿using CMD.MSMK.DAL;
+using CMD.MSMK.MODEL;
 using CMD.MSMK.MODEL.MODEL;
 using System;
 using System.Collections.Generic;
@@ -48,9 +49,9 @@ namespace CMD.MSMK.BLL
         }
 
 
-        public static List<ModelUsers> GetUserspaging(int pageIndex, int pageSize, out int totalCount, string Username = "", int Usergrade = 0, int UsersState = -1)
+        public static List<ModelUsers> GetUserspaging(int pageIndex, int pageSize, out int totalCount)
         {
-            return DalUsersList.UserspagingGet(pageIndex, pageSize,out totalCount, Username, Usergrade, UsersState);
+            return DalUsersList.UserspagingGet(pageIndex, pageSize,out totalCount);
         }
     }
 }

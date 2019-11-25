@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DalAnalyze.cs" />
+    <Compile Include="DalApprove.cs" />
     <Compile Include="DalComment.cs" />
     <Compile Include="DalNotice.cs" />
     <Compile Include="DalProviderProduct.cs" />

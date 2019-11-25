@@ -31,7 +31,7 @@
                         <thead>
                             <tr>
                                 <th>评论ID</th>
-                                <th>卖家商品id</th>
+                                <th>卖家商品名</th>
                                 <th>评价时间</th>
                                 <th>评价</th>
                                 <th>操作</th>

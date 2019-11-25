@@ -34,7 +34,7 @@
                     <div class="close-btn">关闭 <i class="fa fa-close"></i></div>
                     <form id="searchForm" action="#">
                         <div class="form-group">
-                            <input type="search" name="search" placeholder="输入你想要的商品...">
+                            <input type="search" name="search" placeholder="输入你想要的商品品牌...">
                             <button type="submit" class="submit">搜索</button>
                         </div>
                     </form>
@@ -203,17 +203,23 @@
             <!-- Sidebar Navidation Menus-->
             <span class="heading">导航</span>
             <ul class="list-unstyled">
-                <li><a href="Help.aspx" target="frame"><i class="icon-home"></i>主页面 </a></li>
-                <li><a href="Relation.aspx" target="frame"><i class="icon-grid"></i>会员管理 </a></li>
-                <li><a href="Sellerour.aspx" target="frame"><i class="fa fa-bar-chart"></i>会员特权 </a></li>
-                <li><a href="forms.html" target="frame"><i class="icon-padnote"></i>帮助中心 </a></li>
-                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-windows"></i>官方商城 </a>
+              
+                <li><a href="#qq" aria-expanded="false" data-toggle="collapse"><i class="icon-home"></i>卖家商品信息管理 </a>
+                    <ul id="qq" class="collapse list-unstyled ">
+                        <li><a href="Sproduct.aspx" target="frame">商品信息管理</a></li>
+                        <li><a href="Comment.aspx" target="frame">商品评价管理</a></li>
+                    </ul>
+                </li>
+                <li><a href="ProviderProduct.aspx" target="frame"><i class="icon-grid"></i>供应商商品信息管理 </a></li>
+                <li><a href="Sellerour.aspx" target="frame"><i class="fa fa-bar-chart"></i>订单管理 </a></li>
+                <li><a href="forms.html" target="frame"><i class="icon-padnote"></i>公告管理 </a></li>
+                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-windows"></i>平台管理 </a>
                     <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                        <li><a href="#">卡西欧</a></li>
-                        <li><a href="#">浪琴</a></li>
-                        <li><a href="#">DW</a></li>
-                        <li><a href="#">阿玛尼</a></li>
-                        <li><a href="#">劳力士</a></li>
+                        <li><a href="#" target="frame">用户信息管理</a></li>
+                        <li><a href="#" target="frame">级别审批</a></li>
+                        <li><a href="#" target="frame">DW</a></li>
+                        <li><a href="#" target="frame">阿玛尼</a></li>
+                        <li><a href="#" target="frame">劳力士</a></li>
                     </ul>
                 </li>
             </ul>
@@ -239,16 +245,16 @@
             <li class="breadcrumb-item active">会员特权</li>
           </ul>
         </div>--%>
-            <section>
+            <%--<section>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12">--%>
                             <%--创建一个iframe--%>
-                            <iframe name="frame" src="Sellerour.aspx" style="width: 1600px; height: 800px;" />
-                        </div>
+                            <iframe name="frame" onscroll="0" style="width:100%;height:1005px;margin-left:0px"></iframe>
+                        <%--</div>
                     </div>
                 </div>
-            </section>
+            </section>--%>
             <footer class="footer">
                 <div class="footer__block block no-margin-bottom">
                     <div class="container-fluid text-center">
@@ -269,24 +275,5 @@
     <script src="../vendor/chart.js/Chart.min.js"></script>
     <script src="../vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="../js/charts-custom.js"></script>
-    <script>
-        $('#sidebar-toggle').on('click', function () {
-        $(this).toggleClass('active');
-
-        $('#sidebar').toggleClass('shrinked');
-        $('.page-content').toggleClass('active');
-        $(document).trigger('sidebarChanged');
-
-        if ($('#sidebar-toggle').hasClass('active')) {
-            $('.navbar-brand .brand-sm').addClass('visible');
-            $('.navbar-brand .brand-big').removeClass('visible');
-            $(this).find('i').attr('class', 'fa fa-long-arrow-right');
-        } else {
-            $('.navbar-brand .brand-sm').removeClass('visible');
-            $('.navbar-brand .brand-big').addClass('visible');
-            $(this).find('i').attr('class', 'fa fa-long-arrow-left');
-        }
-    });
-    </script>
 </body>
 </html>
